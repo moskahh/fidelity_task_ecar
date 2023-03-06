@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>修改员工信息</title>
+</head>
+<body>
+<div align="left">
+    <button onclick="window.location.href='/showEmployee/'"> ←返回 </button>
+</div>
+<br>
+<br>
+<br>
+
+<form action=""; method="post">
+    {% csrf_token %}
+
+    <table>
+        <tr><td>工号：<input  type="text" name="t_id" value="{{ employee.sid }}" disabled="True"></td></tr>
+        <tr><td>姓名：<input type="text" name="t_name" value="{{ employee.name }}"></td></tr>
+        <tr><td>联系方式：<input type="text" name="t_phone" value="{{ employee.phone }}"></td></tr>
+        <tr>
+            <td>部门：<select id="heard1" class="form-control" required="" data-parsley-id="6485" name="t_apartment">
+                {% for name in department_all %}
+                    <option id="name" value="{{ name }}" {% if name == employee.department %}
+                            selected {% endif %}>{{ name }}</option>
+                {% endfor %}
+            </select></td>
+        </tr>
+{#            <select name="t_apartment" value="{{ employee.department }}">#}
+{#        <option value="数据部门 " >数据部门</option>#}
+{#        <option value="开发部门" >开发部门</option>#}
+{#        <option value="咨询部门" >咨询部门</option>#}
+{#        <option value="人力资源管理部门" >人力资源管理部门</option>#}
+{#        <option value="后勤部门" >后勤部门</option>#}
+{#        <option value="算法部门" >算法部门</option>#}
+{#        </select></td></tr>#}
+        <tr><td>生日：<input type="date" name="t_birthday" value="{{ employee.birthday }}"></td></tr>
+{#删除员工是否有车属性，是否有车的判断从车辆列表查询#}
+        {#        <tr><td>是否有车：#}
+{#            {%if employee.ifcar%}#}
+            {#如果员工有车，点击True，显示车辆信息#}
+{#                <input type="radio" name="t_ifcar" value=True checked>是#}
+{#                <input type="radio" name="t_ifcar" value=False>否#}
+{#            {% else %}#}
+{#                <input type="radio" name="t_ifcar" value=True>是#}
+{#                <input type="radio" name="t_ifcar" value=False checked>否#}
+{#            {% endif %}#}
+{#        </td></tr>#}
+        <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="submit" id="submit" value="提交" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" name="reset" id="reset" value="重置" />  </td></tr>
+</table></form>
+
+</body>
+</html>

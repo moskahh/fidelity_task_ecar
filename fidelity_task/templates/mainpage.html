@@ -1,0 +1,116 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>mainpage</title>
+    <style type="text/css">
+        .header {
+            border-bottom: 1px solid #ccc;
+            margin-bottom: 5px;
+        }
+
+        .MainContainer {
+            min-width: 960px;
+            max-width: 1600px;
+        }
+
+        .sidebar {
+            width: 180px;
+            float: left;
+            margin-right: -180px;
+            border-right: 1px solid #ccc;
+            min-height: 500px;
+            padding: 5px;
+        }
+
+        .main {
+            float: left;
+            margin-left: 200px;
+            padding: 5px;
+        }
+
+        .content {
+            padding: 0 10px;
+        }
+    </style>
+</head>
+<body>
+<div class="page">
+    <div class="header">
+        <div id="title">
+            <table width="100%">
+                <tr>
+                    <td height="68" colspan="4" align="center">员工车辆管理系统</td>
+                </tr>
+                <tr>
+
+                    <td width="40%" align="right">
+                        <marquee>
+                            欢迎登陆
+                        </marquee>
+                    </td>
+                    <td width="50%" align="center"><span id="show"></span></td>
+                    {#                    <td width="10%" align="right"><a href="index.jsp" target="_top">退出</a></td>#}
+                </tr>
+
+            </table>
+            <script>
+                function run() {
+                    var time = new Date();//获取系统当前时间
+                    var year = time.getFullYear();
+                    var month = time.getMonth() + 1;
+                    var date = time.getDate();//系统时间月份中的日
+                    var day = time.getDay();//系统时间中的星期值
+                    var weeks = ["星期日", "星期一", "星期二", "星期三", "星期四", "星期五", "星期六"];
+                    var week = weeks[day];//显示为星期几
+                    var hour = time.getHours();
+                    var minutes = time.getMinutes();
+                    var seconds = time.getSeconds();
+                    console.log(seconds);
+                    if (month < 10) {
+                        month = "0" + month;
+                    }
+                    if (date < 10) {
+                        date = "0" + date;
+                    }
+                    if (hour < 10) {
+                        hour = "0" + hour;
+                    }
+                    if (minutes < 10) {
+                        minutes = "0" + minutes;
+                    }
+                    if (seconds < 10) {
+                        seconds = "0" + seconds;
+                    }
+                    //var newDate = year+"年"+month+"月"+date+"日"+week+hour+":"+minutes+":"+seconds;
+                    document.getElementById("show").innerHTML = year + "年" + month + "月" + date + "日" + week + hour + ":" + minutes + ":" + seconds;
+                    setTimeout('run()', 1000);
+                }
+
+                run();
+
+
+            </script>
+
+        </div>
+    </div>
+    <div class="MainContainer">
+        <div class="sidebar">
+            <ul type="circle">
+                <li>
+                    <a href="/showEmployee/" target="right">员工信息</a></li>
+                <li>
+                    {#                    unfinished#}
+                    <a href="/showCar/" target="right">车辆信息</a></li>
+                <li>
+{#                    unfinished#}
+                    <a href="/ronoob/" target="right">车辆进出情况</a></li>
+            </ul>
+        </div>
+        <div id="main" class="main">
+
+        </div>
+    </div>
+</div>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>增加员工</title>
+</head>
+<body>
+<div align="left">
+    <button onclick="window.location.href='/showEmployee/'"> ←返回 </button>
+</div>
+<br>
+<br>
+<br>
+
+<form action=""; method="post">
+    {% csrf_token %}
+    <table>
+        <tr><td>工号：<input  type="text" name="t_id" ></td></tr>
+        <tr><td>姓名：<input type="text" name="t_name"></td></tr>
+        <tr><td>联系方式：<input type="text" name="t_phone"></td></tr>
+        <tr><td>部门：<select name="t_apartment">
+        <option value="数据部门 " >数据部门</option>
+        <option value="开发部门" >开发部门</option>
+        <option value="咨询部门" >咨询部门</option>
+        <option value="人力资源管理部门" >人力资源管理部门</option>
+        <option value="后勤部门" >后勤部门</option>
+        <option value="算法部门" >算法部门</option>
+        </select></td></tr>
+        <tr><td>生日：<input type="date" name="t_birthday"></td></tr>
+{#        <tr><td>是否有车：<input type="radio" name="t_ifcar" value=True>是#}
+{#            <input type="radio" name="t_ifcar" value=False>否</td></tr>#}
+        <tr><td>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="submit" name="submit" id="submit" value="添加" />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<input type="reset" name="reset" id="reset" value="重置" />  </td></tr>
+</table></form>
+
+</body>
+</html>
