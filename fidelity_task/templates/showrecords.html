@@ -1,8 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>show Records</title>
+</head>
+
 <!DOCTYPE HTML>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>mainpage</title>
+    <title>ShowCar</title>
     <style type="text/css">
         .header {
             border-bottom: 1px solid #ccc;
@@ -32,6 +39,18 @@
         .content {
             padding: 0 10px;
         }
+
+        .main table {
+            text-align: center;
+            border: 1px solid #d701fd;
+            margin: 60px auto 45px;
+        }
+
+        .main tr td {
+            border: 1px solid #d701fd;
+            padding: 5px 10px;
+        }
+
     </style>
 </head>
 <body>
@@ -103,14 +122,53 @@
                     {#                    unfinished#}
                     <a href="/showCar/" target="right">车辆信息</a></li>
                 <li>
-{#                    unfinished#}
+                    {#                    unfinished#}
                     <a href="/showRecord/" target="right">车辆进出情况</a></li>
             </ul>
         </div>
         <div id="main" class="main">
+            <div align="right">
+                <button onclick="window.location.href='/carEnter/'">进入车辆</button>
+                <button onclick="window.location.href='/carLeave/'">离开车辆</button>
+            </div>
+            <table>
+                <tbody>
+                <tr>
+                    <td>车牌号</td>
+                    <td>进入时间</td>
+                    <td>离开时间</td>
+                    <td>停留时间</td>
+                    <td>操作</td>
 
+                </tr>
+                {% for record in recordall %}
+                    <tr>
+                        {#        {% for key,value in i.items %}#}
+                        {#            <td>{{value}}</td>#}
+                        {#        {% endfor %}#}
+
+                        <td>{{ record.car_number }}</td>
+                        <td>{{ record.enter_time }}</td>
+                        <td>{{ record.out_time }}</td>
+                        <td>{{ record.stay_time }}</td>
+                        <td>
+                            <button onclick="window.location.href='/deleteRecord/{{ record.sid }}'">删除</button>
+                        </td>
+
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
         </div>
     </div>
 </div>
 </body>
 </html>
+
+
+
+
+
+
+
+

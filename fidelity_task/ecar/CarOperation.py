@@ -20,7 +20,7 @@ def add(request):
         ctype = request.POST.get("c_type")
 
         #若添加的车辆信息对应员工信息不在employee表内，则禁止添加，并弹出alert
-        print(list(Employee.objects.filter(sid=cuserid)))
+        # print(list(Employee.objects.filter(sid=cuserid)))
         if not list(Employee.objects.filter(sid=cuserid)):
             messages.success(request, "员工信息不存在")
             return redirect('/addCar/')

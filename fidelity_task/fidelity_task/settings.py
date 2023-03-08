@@ -113,7 +113,7 @@ USE_I18N = True
 
 USE_L10N = True
 
-USE_TZ = True
+USE_TZ = False  #修改时区 True：oringin---TIME_ZONE'UTC'; 修改为False则为本地时间，与datatime.now一致
 
 
 # Static files (CSS, JavaScript, Images)

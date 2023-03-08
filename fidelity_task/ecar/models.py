@@ -23,7 +23,7 @@ class Records(models.Model):
     Record car access
     '''
     sid = models.AutoField(primary_key=True)
-    enter_time = models.DateField(auto_now_add=True)
-    out_time = models.DateField()
+    enter_time = models.DateTimeField(auto_now_add=True)
+    out_time = models.DateTimeField(default=None, null=True)
     car_number = models.CharField(max_length=20)
-    stay_time = models.TimeField()
+    # stay_time = models.TimeField()

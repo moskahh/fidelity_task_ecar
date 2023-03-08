@@ -20,7 +20,7 @@ from django.conf.urls import url
 from django.urls import path
 
 from . import views
-from ecar import EmployeeOperation, CarOperation
+from ecar import EmployeeOperation, CarOperation, RecordOperation
 
 urlpatterns = [
     # path第一个分配网站地址，后调用函数
@@ -38,5 +38,9 @@ urlpatterns = [
     path('deleteCar/<int:cid>/', CarOperation.delete),
     path('editCar/<int:cid>/', CarOperation.edit),
 
+    path('showRecord/', RecordOperation.show),
+    path('carEnter/', RecordOperation.carenter),
+    path('carLeave/', RecordOperation.carleave),
+    path('deleteRecord/<int:sid>/', RecordOperation.delete),
 
 ]
